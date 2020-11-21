@@ -2,7 +2,8 @@
 
 // Only for Applications
 #include "Masita/Application.h"
+#include "Masita/Log.h"
 
-// -------Entry Point-----------------
+// ------- Entry Point -----------------
 #include "Masita/EntryPoint.h"
-// -----------------------------------
+// -------------------------------------
