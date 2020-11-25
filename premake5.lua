@@ -1,8 +1,7 @@
 workspace "Masita"
     architecture "x64"
 
-    configurations
-    {
+    configurations {
         "Debug",
         "Release",
         "Dist"
@@ -18,12 +17,16 @@ project "Masita"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "mapch.h"
+    pchsource "Masita/src/mapch.cpp"
+
     files {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp"
     }
 
     includedirs {
+        "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include"
     }
 

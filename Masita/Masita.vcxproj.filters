@@ -4,6 +4,9 @@
     <Filter Include="Masita">
       <UniqueIdentifier>{A46398C2-9005-C398-79C0-D6EC65014AE9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Masita\Events">
+      <UniqueIdentifier>{080F8D82-74CF-08B9-3D0A-5236A9894D95}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Masita.h" />
@@ -16,9 +19,22 @@
     <ClInclude Include="src\Masita\EntryPoint.h">
       <Filter>Masita</Filter>
     </ClInclude>
+    <ClInclude Include="src\Masita\Events\ApplicationEvent.h">
+      <Filter>Masita\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Masita\Events\Event.h">
+      <Filter>Masita\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Masita\Events\KeyEvent.h">
+      <Filter>Masita\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Masita\Events\MouseEvent.h">
+      <Filter>Masita\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Masita\Log.h">
       <Filter>Masita</Filter>
     </ClInclude>
+    <ClInclude Include="src\mapch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Masita\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\Masita\Log.cpp">
       <Filter>Masita</Filter>
     </ClCompile>
+    <ClCompile Include="src\mapch.cpp" />
   </ItemGroup>
 </Project>
