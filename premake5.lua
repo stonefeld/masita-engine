@@ -9,6 +9,11 @@ workspace "Masita"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Masita/vendor/GLFW/include"
+
+include "Masita/vendor/GLFW"
+
 project "Masita"
     location "Masita"
     kind "SharedLib"
@@ -27,7 +32,13 @@ project "Masita"
 
     includedirs {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links {
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"

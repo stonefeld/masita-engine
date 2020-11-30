@@ -7,6 +7,12 @@
     <Filter Include="Masita\Events">
       <UniqueIdentifier>{080F8D82-74CF-08B9-3D0A-5236A9894D95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Masita.h" />
@@ -34,6 +40,12 @@
     <ClInclude Include="src\Masita\Log.h">
       <Filter>Masita</Filter>
     </ClInclude>
+    <ClInclude Include="src\Masita\Window.h">
+      <Filter>Masita</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\mapch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +54,9 @@
     </ClCompile>
     <ClCompile Include="src\Masita\Log.cpp">
       <Filter>Masita</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\mapch.cpp" />
   </ItemGroup>
