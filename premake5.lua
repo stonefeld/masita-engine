@@ -11,8 +11,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Masita/vendor/GLFW/include"
+IncludeDir["Glad"] = "Masita/vendor/Glad/include"
 
 include "Masita/vendor/GLFW"
+include "Masita/vendor/Glad"
 
 project "Masita"
     location "Masita"
@@ -33,11 +35,13 @@ project "Masita"
     includedirs {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}"
     }
 
     links {
         "GLFW",
+        "GLAD",
         "opengl32.lib"
     }
 
@@ -48,7 +52,8 @@ project "Masita"
 
         defines {
             "MA_PLATFORM_WINDOWS",
-            "MA_BUILD_DLL"
+            "MA_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands {
@@ -57,14 +62,17 @@ project "Masita"
 
     filter "configurations:Debug"
         defines "MA_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "MA_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "MA_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 project "Sandbox"
@@ -100,12 +108,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "MA_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "MA_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "MA_DIST"
+        buildoptions "/MD"
         optimize "On"
