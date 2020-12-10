@@ -1,0 +1,2 @@
+C:\Users\master\Docs\Code\C++\Game Engine\Masita\Masita\vendor\Glad\bin\Debug-windows-x86_64\Glad\Glad.pdb
+C:\Users\master\Docs\Code\C++\Game Engine\Masita\Masita\vendor\Glad\bin-int\Debug-windows-x86_64\Glad\Glad.pdb

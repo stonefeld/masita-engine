@@ -4,3 +4,6 @@
 [submodule "Masita/vendor/GLFW"]
 	path = Masita/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "Masita/vendor/imgui"]
+	path = Masita/vendor/imgui
+	url = https://github.com/TheCherno/imgui
