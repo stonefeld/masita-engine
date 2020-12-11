@@ -2,6 +2,10 @@
 
 #include "Masita/Layer.h"
 
+#include "Masita/Events/ApplicationEvent.h"
+#include "Masita/Events/KeyEvent.h"
+#include "Masita/Events/MouseEvent.h"
+
 namespace Masita {
 
     class MASITA_API ImGuiLayer : public Layer
@@ -16,6 +20,15 @@ namespace Masita {
         void OnEvent(Event& event);
 
     private:
+        bool OnMouseButtonPressedEvent(MouseButtonPressedEvent& e);
+        bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e);
+        bool OnMouseMovedEvent(MouseMovedEvent& e);
+        bool OnMouseScrolledEvent(MouseScrolledEvent& e);
+        bool OnKeyPressedEvent(KeyPressedEvent& e);
+        bool OnKeyReleasedEvent(KeyReleasedEvent& e);
+        bool OnKeyTypedEvent(KeyTypedEvent& e);
+        bool OnWindowResizedEvent(WindowResizeEvent& e);
+
         float m_Time = 0.0f;
     };
 
