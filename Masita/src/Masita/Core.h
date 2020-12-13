@@ -10,8 +10,12 @@
     #error Masita only supports Windows!
 #endif
 
+#ifdef MA_DEBUG
+    #define MA_ENABLE_ASSERTS
+#endif
+
 #ifdef MA_ENABLE_ASSERTS
-    #define MA_ASSETS(x, ...) { if (!(x)) { MA_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+    #define MA_ASSERT(x, ...) { if (!(x)) { MA_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
     #define MA_CORE_ASSERT(x, ...) { if (!(x)) { MA_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #else
     #define MA_ASSERT(x, ...)

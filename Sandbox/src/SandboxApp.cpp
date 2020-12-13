@@ -23,7 +23,7 @@ class Sandbox : public Masita::Application
 public:
     Sandbox()
     {
-        PushLayer(new ExampleLayer());
+        //PushLayer(new ExampleLayer());
         PushOverlay(new Masita::ImGuiLayer());
     }
 

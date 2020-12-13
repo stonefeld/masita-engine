@@ -42,7 +42,7 @@ namespace Masita {
         if (!s_GLFWInitialized)
         {
             int success = glfwInit();
-            MA_CORE_ASSERT(success, "Could not initialize GLFW!");
+            MA_CORE_ASSERT(success, "Failed to initialize GLFW");
             glfwSetErrorCallback(GLFWErrorCallback);
             s_GLFWInitialized = true;
         }
@@ -50,7 +50,7 @@ namespace Masita {
         m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(m_Window);
         int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-        MA_CORE_ASSERT(status, "Failed to initialize Glad!");
+        MA_CORE_ASSERT(status, "Failed to initialize Glad");
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
 
