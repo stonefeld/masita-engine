@@ -9,12 +9,17 @@ public:
 
     void OnUpdate() override
     {
-        MA_INFO("ExampleLayer::Update");
+        if (Masita::Input::IsKeyPressed(MA_KEY_TAB))
+            MA_TRACE("Tab key is pressed!");
     }
 
     void OnEvent(Masita::Event& event) override
     {
-        MA_TRACE("{0}", event);
+        if (event.GetEventType() == Masita::EventType::KeyPressed)
+        {
+            Masita::KeyPressedEvent& e = (Masita::KeyPressedEvent&)event;
+            MA_TRACE("{0}", (char)e.GetKeyCode());
+        }
     }
 };
 
@@ -23,7 +28,7 @@ class Sandbox : public Masita::Application
 public:
     Sandbox()
     {
-        //PushLayer(new ExampleLayer());
+        PushLayer(new ExampleLayer());
         PushOverlay(new Masita::ImGuiLayer());
     }
 

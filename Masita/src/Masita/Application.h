@@ -28,11 +28,12 @@ namespace Masita {
     private:
         bool OnWindowClose(WindowCloseEvent& e);
 
+    private:
+        static Application* s_Instance;
+
         std::unique_ptr<Window> m_Window;
         bool m_Running = true;
         LayerStack m_LayerStack;
-
-        static Application* s_Instance;
     };
 
     // To be defined in client

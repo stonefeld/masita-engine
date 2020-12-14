@@ -1,13 +1,12 @@
 workspace "Masita"
     architecture "x64"
+    startproject "Sandbox"
 
     configurations {
         "Debug",
         "Release",
         "Dist"
     }
-
-    startproject "Sandbox"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
@@ -64,7 +63,7 @@ project "Masita"
         }
 
         postbuildcommands {
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+            ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
         }
 
     filter "configurations:Debug"
