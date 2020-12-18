@@ -7,3 +7,6 @@
 [submodule "Masita/vendor/imgui"]
 	path = Masita/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Masita/vendor/glm"]
+	path = Masita/vendor/glm
+	url = https://github.com/g-truc/glm

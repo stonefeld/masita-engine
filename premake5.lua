@@ -14,11 +14,11 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Masita/vendor/GLFW/include"
 IncludeDir["Glad"] = "Masita/vendor/Glad/include"
 IncludeDir["ImGui"] = "Masita/vendor/imgui"
+IncludeDir["glm"] = "Masita/vendor/glm"
 
 include "Masita/vendor/GLFW"
 include "Masita/vendor/Glad"
 include "Masita/vendor/imgui"
-
 
 project "Masita"
     location "Masita"
@@ -34,7 +34,9 @@ project "Masita"
 
     files {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.inl"
     }
 
     includedirs {
@@ -42,7 +44,8 @@ project "Masita"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
-        "%{IncludeDir.ImGui}"
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}"
     }
 
     links {
@@ -97,7 +100,9 @@ project "Sandbox"
 
     includedirs {
         "Masita/vendor/spdlog/include",
-        "Masita/src"
+        "Masita/src",
+        "Masita/vendor",
+        "%{IncludeDir.glm}"
     }
 
     links {

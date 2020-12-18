@@ -1,4 +1,5 @@
 #include <Masita.h>
+#include "imgui/imgui.h"
 
 class ExampleLayer : public Masita::Layer
 {
@@ -7,13 +8,20 @@ public:
         : Layer("Example")
     {}
 
-    void OnUpdate() override
+    virtual void OnUpdate() override
     {
         if (Masita::Input::IsKeyPressed(MA_KEY_TAB))
             MA_TRACE("Tab key is pressed!");
     }
 
-    void OnEvent(Masita::Event& event) override
+    virtual void OnImGuiRender() override
+    {
+        ImGui::Begin("Test");
+        ImGui::Text("Hello World");
+        ImGui::End();
+    }
+
+    virtual void OnEvent(Masita::Event& event) override
     {
         if (event.GetEventType() == Masita::EventType::KeyPressed)
         {
@@ -29,7 +37,6 @@ public:
     Sandbox()
     {
         PushLayer(new ExampleLayer());
-        PushOverlay(new Masita::ImGuiLayer());
     }
 
     ~Sandbox()

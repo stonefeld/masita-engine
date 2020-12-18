@@ -7,6 +7,8 @@
 #include "Masita/Events/Event.h"
 #include "Masita/Events/ApplicationEvent.h"
 
+#include "Masita/ImGui/ImGuiLayer.h"
+
 namespace Masita {
 
     class MASITA_API Application
@@ -32,6 +34,7 @@ namespace Masita {
         static Application* s_Instance;
 
         std::unique_ptr<Window> m_Window;
+        ImGuiLayer* m_ImGuiLayer;
         bool m_Running = true;
         LayerStack m_LayerStack;
     };
