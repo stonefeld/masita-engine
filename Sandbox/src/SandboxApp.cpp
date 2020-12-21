@@ -8,7 +8,7 @@ public:
         : Layer("Example")
     {}
 
-    virtual void OnUpdate() override
+    void OnUpdate() override
     {
         if (Masita::Input::IsKeyPressed(MA_KEY_TAB))
             MA_TRACE("Tab key is pressed!");
@@ -21,7 +21,7 @@ public:
         ImGui::End();
     }
 
-    virtual void OnEvent(Masita::Event& event) override
+    void OnEvent(Masita::Event& event) override
     {
         if (event.GetEventType() == Masita::EventType::KeyPressed)
         {

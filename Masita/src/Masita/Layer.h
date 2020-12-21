@@ -8,7 +8,7 @@ namespace Masita {
     class MASITA_API Layer
     {
     public:
-        Layer(const std::string& name = "Layer");
+        Layer(const std::string& name="Layer");
         virtual ~Layer();
 
         virtual void OnAttach() {}

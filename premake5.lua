@@ -5,7 +5,7 @@ workspace "Masita"
     configurations {
         "Debug",
         "Release",
-        "Dist"
+        "Dist",
     }
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
@@ -22,9 +22,10 @@ include "Masita/vendor/imgui"
 
 project "Masita"
     location "Masita"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
-    staticruntime "off"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -36,7 +37,11 @@ project "Masita"
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
-        "%{prj.name}/vendor/glm/glm/**.inl"
+        "%{prj.name}/vendor/glm/glm/**.inl",
+    }
+
+    defines {
+        "_CRT_SECURE_NO_WARNINGS"
     }
 
     includedirs {
@@ -45,64 +50,60 @@ project "Masita"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
     }
 
     links {
         "GLFW",
         "GLAD",
         "ImGui",
-        "opengl32.lib"
+        "opengl32.lib",
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
 
         defines {
             "MA_PLATFORM_WINDOWS",
             "MA_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
-        }
-
-        postbuildcommands {
-            ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
+            "GLFW_INCLUDE_NONE",
         }
 
     filter "configurations:Debug"
         defines "MA_DEBUG"
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines "MA_RELEASE"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "MA_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
 project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
+    cppdialect "C++17"
     language "C++"
-    staticruntime "off"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
     files {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
     }
 
     includedirs {
         "Masita/vendor/spdlog/include",
         "Masita/src",
         "Masita/vendor",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
     }
 
     links {
@@ -110,7 +111,6 @@ project "Sandbox"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
 
         defines {
@@ -120,14 +120,14 @@ project "Sandbox"
     filter "configurations:Debug"
         defines "MA_DEBUG"
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines "MA_RELEASE"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "MA_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"
