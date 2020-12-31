@@ -10,6 +10,7 @@
 #include "Masita/ImGui/ImGuiLayer.h"
 
 #include "Masita/Renderer/Shader.h"
+#include "Masita/Renderer/Buffer.h"
 
 namespace Masita {
 
@@ -40,9 +41,10 @@ namespace Masita {
         bool m_Running = true;
         LayerStack m_LayerStack;
 
-        unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
-
-        std::unique_ptr<Shader> m_Shader;   
+        unsigned int m_VertexArray;
+        std::unique_ptr<Shader> m_Shader;
+        std::unique_ptr<VertexBuffer> m_VertexBuffer;
+        std::unique_ptr<IndexBuffer> m_IndexBuffer;
     };
 
     // To be defined in client
