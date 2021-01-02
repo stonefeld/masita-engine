@@ -23,15 +23,15 @@ namespace Masita {
 }
 
 // Core log macros
-#define MA_CORE_TRACE(...)      ::Masita::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define MA_CORE_INFO(...)       ::Masita::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define MA_CORE_WARN(...)       ::Masita::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define MA_CORE_ERROR(...)      ::Masita::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define MA_CORE_CRITICAL(...)   ::Masita::Log::GetCoreLogger()->critical(__VA_ARGS__)
+#define MA_CORE_TRACE(...)    ::Masita::Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define MA_CORE_INFO(...)     ::Masita::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define MA_CORE_WARN(...)     ::Masita::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define MA_CORE_ERROR(...)    ::Masita::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define MA_CORE_CRITICAL(...) ::Masita::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client log macros
-#define MA_TRACE(...)           ::Masita::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define MA_INFO(...)            ::Masita::Log::GetClientLogger()->info(__VA_ARGS__)
-#define MA_WARN(...)            ::Masita::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define MA_ERROR(...)           ::Masita::Log::GetClientLogger()->error(__VA_ARGS__)
-#define MA_CRITICAL(...)        ::Masita::Log::GetClientLogger()->critical(__VA_ARGS__)
+#define MA_TRACE(...)         ::Masita::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define MA_INFO(...)          ::Masita::Log::GetClientLogger()->info(__VA_ARGS__)
+#define MA_WARN(...)          ::Masita::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define MA_ERROR(...)         ::Masita::Log::GetClientLogger()->error(__VA_ARGS__)
+#define MA_CRITICAL(...)      ::Masita::Log::GetClientLogger()->critical(__VA_ARGS__)
