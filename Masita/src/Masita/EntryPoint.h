@@ -6,12 +6,12 @@ extern Masita::Application* Masita::CreateApplication();
 
 void main(int argc, char** argv)
 {
-    Masita::Log::Init();
-    MA_CORE_WARN("Initialized Log!");
+	Masita::Log::Init();
+	MA_CORE_WARN("Initialized Log!");
 
-    auto app = Masita::CreateApplication();
-    app->Run();
-    delete app;
+	auto app = Masita::CreateApplication();
+	app->Run();
+	delete app;
 }
 
 #endif

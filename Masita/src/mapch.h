@@ -15,5 +15,5 @@
 #include "Masita/Log.h"
 
 #ifdef MA_PLATFORM_WINDOWS
-    #include <Windows.h>
+#include <Windows.h>
 #endif

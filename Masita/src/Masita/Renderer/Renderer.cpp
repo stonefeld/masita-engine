@@ -3,16 +3,16 @@
 
 namespace Masita {
 
-    void Renderer::BeginScene()
-    {}
+	void Renderer::BeginScene()
+	{}
 
-    void Renderer::EndScene()
-    {}
+	void Renderer::EndScene()
+	{}
 
-    void Renderer::Submit(const std::shared_ptr<VertexArray>& vertexArray)
-    {
-        vertexArray->Bind();
-        RenderCommand::DrawIndexed(vertexArray);
-    }
+	void Renderer::Submit(const std::shared_ptr<VertexArray>& vertexArray)
+	{
+		vertexArray->Bind();
+		RenderCommand::DrawIndexed(vertexArray);
+	}
 
 }
